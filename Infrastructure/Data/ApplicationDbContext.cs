@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.Domain.Entities;
+﻿using Domain;
+using EmployeeManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementSystem.Infrastructure.Data
@@ -12,5 +13,6 @@ namespace EmployeeManagementSystem.Infrastructure.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<PerformanceReview> PerformanceReviews { get; set; }
+        public virtual DbSet<DepartmentAverage> DepartmentAverages { get; set; }
     }
 }

@@ -1,11 +1,8 @@
-﻿using EmployeeManagementSystem.Domain.Entities;
+﻿using Domain;
+using EmployeeManagementSystem.Domain.Entities;
 using EmployeeManagementSystem.Domain.Interfaces;
 using EmployeeManagementSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.Infrastructure.Repositories
 {
@@ -65,6 +62,14 @@ namespace EmployeeManagementSystem.Infrastructure.Repositories
                 _context.Entry(employee).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<DepartmentAverage>> GetDepartmentAverageScoresAsync()
+        {
+            List< DepartmentAverage> DepartmentAverages = new List< DepartmentAverage >();
+            return await _context.DepartmentAverages
+                .FromSqlRaw("EXEC GetDepartmentAverageScores")
+                .ToListAsync();
         }
     }
 }

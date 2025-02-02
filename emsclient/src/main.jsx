@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import 'react';
+import { CssBaseline, Container } from '@mui/material';
+import EmployeeList from './components/EmployeeList';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+function App() {
+    return (
+        <div className="App">
+            <CssBaseline />
+            <Container maxWidth="lg" sx={{ py: 4 }}>
+                <EmployeeList />
+            </Container>
+        </div>
+    );
+}
+
+export default App;

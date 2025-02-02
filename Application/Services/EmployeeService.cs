@@ -1,11 +1,8 @@
-﻿using AutoMapper;
+﻿using Application.DTOs;
+using Application.Interfaces;
+using AutoMapper;
 using EmployeeManagementSystem.Domain.Entities;
 using EmployeeManagementSystem.Domain.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.DTOs;
-using Application.Interfaces;
 
 namespace Application.Services
 {
@@ -56,6 +53,11 @@ namespace Application.Services
         public async Task DeleteEmployeeAsync(int id)
         {
             await _employeeRepository.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<DepartmentAverageDTO>> GetDepartmentAverageScoresAsync()
+        {
+            return (IEnumerable<DepartmentAverageDTO>)await _employeeRepository.GetDepartmentAverageScoresAsync();
         }
     }
 }

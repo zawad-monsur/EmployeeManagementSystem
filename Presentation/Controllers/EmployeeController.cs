@@ -1,6 +1,8 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using static EmployeeManagementSystem.Controllers.EmployeeController;
 
 namespace EmployeeManagementSystem.Controllers
 {
@@ -66,5 +68,15 @@ namespace EmployeeManagementSystem.Controllers
             await _employeeService.DeleteEmployeeAsync(id);
             return NoContent();
         }
+
+
+        [HttpGet("department-averages")]
+        public async Task<ActionResult<IEnumerable<DepartmentAverageDTO>>> GetDepartmentAverages()
+        {
+            var averages = await _employeeService.GetDepartmentAverageScoresAsync();
+            return Ok(averages);
+        }
+
+       
     }
 }

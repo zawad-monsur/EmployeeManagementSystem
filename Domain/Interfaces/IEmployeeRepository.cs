@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.Domain.Entities;
+﻿using Domain;
+using EmployeeManagementSystem.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,5 +13,6 @@ namespace EmployeeManagementSystem.Domain.Interfaces
         Task<Employee> AddAsync(Employee employee);
         Task UpdateAsync(Employee employee);
         Task DeleteAsync(int id);
+        Task<IEnumerable<DepartmentAverage>> GetDepartmentAverageScoresAsync();
     }
 }

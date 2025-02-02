@@ -12,5 +12,6 @@ namespace Application.Interfaces
         Task<EmployeeDTO> AddEmployeeAsync(EmployeeDTO employeeDTO);
         Task UpdateEmployeeAsync(EmployeeDTO employeeDTO);
         Task DeleteEmployeeAsync(int id);
+        Task<IEnumerable<DepartmentAverageDTO>> GetDepartmentAverageScoresAsync();
     }
 }
